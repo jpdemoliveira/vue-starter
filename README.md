@@ -103,9 +103,11 @@ All components are **data-independent and reusable**, communicating via props/ev
 - Provide accessible UI components
 - Reduce styling overhead
 
-Tree-shaking was applied to reduce bundle size in production.
+Tree-shaking was applied to reduce bundle size in production-like build.
 
-⚠️ Vuetify tree-shaking only applies in production:
+Tree-shaking can be simplified with packages, but that was discarded for this assignment
+
+⚠️ Vuetify tree-shaking only applies in a production-like build:
 
 ```bash
 npm run build
@@ -195,7 +197,7 @@ The additional time was used for **polishing, UX improvements, and documentation
   - Full reload only on new search
   - Other interactions are reactive
 
-⚠️ Vuetify tree-shaking only applies in production:
+⚠️ Vuetify tree-shaking only applies in a production-like build:
 
 ```bash
 npm run build
