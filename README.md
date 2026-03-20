@@ -265,13 +265,14 @@ This limits pagination to ~500 pages using offset, but for some queries the page
 
 ---
 
-### 3. UX Improvement Opportunity
+### 3. UX Improvement Opportunities
 
-After a new search on `SearchView`:
+1. After a new search on `SearchView`:
 
 - Filters should reset visually
 - URL is updated correctly and page is refreshed, but UI state could be better synchronized and avoid page refresh.
 
+2. Sorting by relevance, date, authors and other properties could be implemented for better usage of the search engine.
 ---
 
 ## Testing
