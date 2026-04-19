@@ -17,7 +17,7 @@ const emit = defineEmits<{
 const selectedTypes = ref<string[]>([]);
 const fromYear = ref<string | null>(null);
 const untilYear = ref<string | null>(null);
-
+const selectedLicenses = ref<string[]>([])
 
 //
 // Helper functions/Props
@@ -41,6 +41,12 @@ const years = computed(() => {
 
   return result;
 });
+
+const licenseOptions = computed(()=>{
+  if (!props.facets?.["license"]) return [];
+
+  return Object.keys(props.facets["license"].values);
+})
 
 function initializeFiltersFromUrl() {
   const filterQuery = route.query.filter as string | undefined;
@@ -74,10 +80,15 @@ function applyFilters() {
     "from-pub-date"?: string;
     "until-pub-date"?: string;
     "type-name"?: string[];
+    "license.url"?: string[];
   } = {};
 
   if (selectedTypes.value.length) {
     filters["type-name"] = selectedTypes.value;
+  }
+
+  if(selectedLicenses.value.length){
+    filters["license.url"] = selectedLicenses.value
   }
 
   if (fromYear.value) {
@@ -115,6 +126,15 @@ initializeFiltersFromUrl();
       density="comfortable"
       class="mb-4"
       aria-label="Filter by publication type"
+    />
+
+    <v-combobox
+    v-model="selectedLicenses"
+    :items="licenseOptions"
+    label="Licenses"
+    multiple
+    chips
+    clearable
     />
 
     <!-- Year range -->

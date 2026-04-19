@@ -29,7 +29,7 @@ npm install
 - Vitest (unit)
 - Playwright (E2E)
 
-# Search Interface – Take Home Assignment (João Oliveira)
+# Search Interface
 
 ## Overview
 

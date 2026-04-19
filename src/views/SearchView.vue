@@ -42,6 +42,12 @@ function buildFilterQuery(filters: SearchFilters): string {
     });
   }
 
+  if (filters["license.url"]) {
+    filters["license.url"].forEach((type) => {
+      parts.push(`license.url:${type}`);
+    });
+  }
+
   if (filters["from-pub-date"]) {
     parts.push(`from-pub-date:${filters["from-pub-date"]}`);
   }
@@ -100,9 +106,8 @@ function handleSearch(query: string) {
         q: query,
       },
     })
-    .then(() => {
-      window.location.reload();
-    });
+
+    callSearchApi(query, null, 0, true);
 }
 
 function handleFilterChange(selectedFilters: SearchFilters) {

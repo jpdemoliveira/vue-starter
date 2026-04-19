@@ -30,5 +30,6 @@ export interface SearchFilters {
   "from-pub-date"?: string
   "until-pub-date"?: string
   "type-name"?: string[]
+  "license.url"?: string[]
 }
 

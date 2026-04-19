@@ -4,6 +4,7 @@ import { ref } from "vue";
 
 export function useSearch() {
   const ROWS_PER_PAGE = 20;
+  const FACET_LIST = ["type-name", "published", "license"]
 
   const query = ref("");
   const results = ref<SearchItem[]>([]);
@@ -41,7 +42,7 @@ export function useSearch() {
         {
           query: searchQuery,
           rows: ROWS_PER_PAGE,
-          facet: ["type-name", "published"],
+          facet: FACET_LIST,
           filters: selectedFilters,
           offset: offset,
         },
